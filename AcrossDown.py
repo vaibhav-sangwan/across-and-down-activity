@@ -16,9 +16,9 @@ from gi.repository import Gtk
 
 class AcrossDown:
 
-    def __init__(self):
-        self.journal=True # set to False if we come in via main()
-        self.canvas=None # set to the pygame canvas if we come in via activity.py
+    def __init__(self, activity):
+        self.journal = True  # set to False if we come in via main()
+        self.canvas = None
 
     def display(self):
         g.screen.fill((255,255,192))

@@ -5,6 +5,7 @@ from gettext import gettext as _
 
 import gi
 gi.require_version('Gtk', '3.0')
+from gi.repository import Gdk
 from gi.repository import Gtk
 from gi.repository import GObject
 
@@ -44,18 +45,33 @@ class PeterActivity(activity.Activity):
         self.show_all()
 
         # Create the game instance.
-        self.game = AcrossDown.AcrossDown()
+        self.game = AcrossDown.AcrossDown(self)
 
         # Build the Pygame canvas.
-        self._pygamecanvas = \
-            sugargame.canvas.PygameCanvas(self)
-        # Note that set_canvas implicitly calls
-        # read_file when resuming from the Journal.
-        self.set_canvas(self._pygamecanvas)
-        self.game.canvas=self._pygamecanvas
+        self.game.canvas = sugargame.canvas.PygameCanvas(self, \
+            main=self.game.run, modules=[pygame.display, pygame.font])
+        
+        self.set_canvas(self.game.canvas)
+        self.game.canvas.grab_focus()
+
+        Gdk.Screen.get_default().connect('size-changed',
+                                              self.__configure_cb)
 
         # Start the game running.
-        self._pygamecanvas.run_pygame(self.game.run)
+
+
+    def get_preview(self):
+        return self.game.canvas.get_preview()
+
+    def __configure_cb(self, event):
+        ''' Screen size has changed '''
+        pygame.display.set_mode((Gdk.Screen.width(),
+                                 Gdk.Screen.height() - GRID_CELL_SIZE),
+                                pygame.RESIZABLE)
+        self.game.save_pattern()
+        self.game.g_init()
+        self._speed_range.set_value(800)
+        self.game.run(restore=True)
 
     def read_file(self, file_path):
         try:
