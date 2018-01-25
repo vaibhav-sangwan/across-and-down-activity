@@ -10,10 +10,9 @@
 
 """
 import g,pygame,utils,sys,load_save,buttons,acr,letter_keys
-try:
-    import gtk
-except:
-    pass
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
 
 class AcrossDown:
 
@@ -88,7 +87,7 @@ class AcrossDown:
         while flushing:
             flushing=False
             if self.journal:
-                while gtk.events_pending(): gtk.main_iteration()
+                while Gtk.events_pending(): Gtk.main_iteration()
             for event in pygame.event.get(): flushing=True
 
     def run(self):
@@ -103,8 +102,8 @@ class AcrossDown:
         going=True
         while going:
             if self.journal:
-                # Pump GTK messages.
-                while gtk.events_pending(): gtk.main_iteration()
+                # Pump Gtk messages.
+                while Gtk.events_pending(): Gtk.main_iteration()
 
             # Pump PyGame messages.
             for event in pygame.event.get():
