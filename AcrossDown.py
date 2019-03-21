@@ -102,7 +102,7 @@ class AcrossDown:
         self.acr=acr.Acr()
         load_save.retrieve()
         self.buttons_setup()
-        if self.canvas<>None: self.canvas.grab_focus()
+        if self.canvas!=None: self.canvas.grab_focus()
         ctrl=False
         pygame.key.set_repeat(600,120); key_ms=pygame.time.get_ticks()
         going=True
@@ -119,7 +119,7 @@ class AcrossDown:
                 elif event.type == pygame.MOUSEMOTION:
                     g.pos=event.pos
                     g.redraw=True
-                    if self.canvas<>None: self.canvas.grab_focus()
+                    if self.canvas!=None: self.canvas.grab_focus()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     self.acr.message=None
                     g.redraw=True
