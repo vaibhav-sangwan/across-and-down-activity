@@ -6,7 +6,7 @@ Across and Down is a sugargame activity inspired from Scrabble.
 How to use?
 ===========
 
-The board has "ghost" letters on it. For example if you place a "z" on a "z", you score 8 points.Make meaningful words and keep scoring!
+The board has "ghost" letters on it. For example if you place a "z" on a "z", you score 8 points. Make meaningful words and keep scoring!
 
 Across and Down is not a part of Sugar desktop, but is often added.  Please refer to;
 * [How to Get Sugar on sugarlabs.org](https://sugarlabs.org/),
