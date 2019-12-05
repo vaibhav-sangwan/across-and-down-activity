@@ -209,7 +209,7 @@ class Acr:
                 cell_list.append(self.cell1(r,c))
             if not self.check_rc(cell_list): return False
         if self.len==1:
-            self.message='please enter aother letter'; return False
+            self.message='please enter another letter'; return False
         if not self.first and not self.connected:
             self.message='letters must be connected'; return False
         # all ok
