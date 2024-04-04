@@ -10,14 +10,14 @@ ver='23'
 ver='24'
 # only one 100% per game
 
-UP=(264, 1073741906)
-DOWN=(258, 1073741905)
-LEFT=(260, 1073741904)
-RIGHT=(262, 1073741903)
-CROSS=(259,120)
-CIRCLE=(265,111)
-SQUARE=(263,32)
-TICK=(257,13)
+UP=(pygame.K_KP8, pygame.K_UP)
+DOWN=(pygame.K_KP2, pygame.K_DOWN)
+LEFT=(pygame.K_KP4, pygame.K_LEFT)
+RIGHT=(pygame.K_KP6, pygame.K_RIGHT)
+CROSS=(pygame.K_KP3, pygame.K_x)
+CIRCLE=(pygame.K_KP9, pygame.K_o)
+SQUARE=(pygame.K_KP7, pygame.K_SPACE)
+TICK=(pygame.K_KP1, pygame.K_RETURN)
 NUMBERS={pygame.K_1:1,pygame.K_2:2,pygame.K_3:3,pygame.K_4:4,\
            pygame.K_5:5,pygame.K_6:6,pygame.K_7:7,pygame.K_8:8,\
            pygame.K_9:9,pygame.K_0:0}
